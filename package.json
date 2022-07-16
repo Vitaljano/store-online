@@ -30,6 +30,8 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-prettier": "^4.2.1",
         "html-webpack-plugin": "^5.5.0",
+        "postcss": "^8.4.14",
+        "postcss-loader": "^7.0.1",
         "prettier": "^2.7.1",
         "sass": "^1.53.0",
         "sass-loader": "^13.0.2",
@@ -40,5 +42,9 @@
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^4.9.3",
         "webpack-merge": "^5.8.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.2.0-beta1",
+        "nouislider": "^15.6.0"
     }
 }
