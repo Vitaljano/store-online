@@ -1,7 +1,8 @@
 // import 'bootstrap';
 import './scss/style.scss';
-
 import { RangeSlider } from './components/rangeSlider/rangeSlider';
+import { Controller } from './components/controller/controller';
+import { SearchBar } from './components/searchBar/saerchBar';
 
 const sliderDateElement = document.getElementById('slider-date');
 const sliderPriceElement = document.getElementById('slider-price');
@@ -31,4 +32,7 @@ if (sliderPriceElement && snapPrice) {
         max: 5000,
     });
 }
-console.log(snapDate);
+
+const controller = new Controller();
+controller.renderCard();
+const search = new SearchBar().init();
