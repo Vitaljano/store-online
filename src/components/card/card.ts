@@ -1,7 +1,9 @@
+import { basket } from '../basket/basket';
 export type Product = {
     id: number;
     name: string;
     amount: number;
+    category: string;
     year: number;
     manufacture: string;
     color: string;
@@ -32,6 +34,11 @@ export class Card {
         const addBtn = cardClone?.querySelector('.card-add-btn') as HTMLElement;
 
         cardClone.dataset.id = product.id.toString();
+        cardClone.dataset.basket = 'false';
+        cardClone.dataset.created = product.year.toString();
+        cardClone.dataset.title = product.name.toString();
+        cardClone.dataset.price = product.price.toString();
+        cardClone.dataset.groups = `["${product.manufacture}","${product.color}","${product.category}"]`;
         title.textContent = product.name;
         image.src = 'assets/images/' + product.image;
         amount.textContent = product.amount.toString();
@@ -40,6 +47,18 @@ export class Card {
         color.textContent = product.color;
         price.textContent = product.price.toString();
 
+        cardClone.addEventListener('click', (e) => {
+            const currentElement = e.currentTarget as HTMLElement;
+            const isButton = e.target as HTMLElement;
+
+            if (isButton.tagName === 'BUTTON') {
+                const id = currentElement?.dataset.id as string;
+                basket.addToBasket(id, currentElement);
+            }
+        });
+        cardClone.addEventListener('add', (e) => {
+            basket.changeStatus(e.currentTarget as HTMLElement);
+        });
         this.buffer.push(cardClone);
     }
 

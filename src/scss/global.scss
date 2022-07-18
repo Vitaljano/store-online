@@ -28,3 +28,7 @@ html {
     transform: scale(1.01);
     box-shadow: 0px 0px 10px lighten($primary, 40);
 }
+
+.in-basket button {
+    background-color: $danger !important;
+}

@@ -24,14 +24,15 @@
                                 id="search-bar"
                                 class="form-control me-2"
                                 type="search"
-                                placeholder="Search"
+                                placeholder="Поиск"
                                 aria-label="Search"
+                                autocomplete="off"
                             />
                         </div>
                         <div class="basket">
                             <button type="button" class="btn btn-primary">
                                 <img src="./assets/icons/icon-basket.svg" alt="" />
-                                <span class="badge rounded-pill bg-danger">1</span>
+                                <span class="badge rounded-pill bg-danger">0</span>
                             </button>
                         </div>
                     </div>
@@ -43,40 +44,46 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-3">
                         <div class="button-reset">
-                            <button type="button" class="btn btn-outline-secondary mb-4">Сброс фильтров</button>
+                            <button type="button" id="reset-filters" class="btn btn-outline-secondary mb-4">
+                                Сброс фильтров
+                            </button>
                             <button type="button" class="btn btn-outline-secondary mb-4">Сброс настроек</button>
                         </div>
                         <div class="sort mb-4">
                             <h5>Сортировка</h5>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select sort-select" aria-label="Default select example">
                                 <option selected>Сортировка</option>
-                                <option value="1">По названию, от А до Я</option>
-                                <option value="1">По названию, от Я до А</option>
-                                <option value="2">По году, по возрастанию</option>
-                                <option value="2">По году, по убыванию</option>
-                                <option value="2">По цене, по возрастанию</option>
-                                <option value="2">По цене, по убыванию</option>
+                                <option value="titleDown">По названию, от А до Я</option>
+                                <option value="titleUp">По названию, от Я до А</option>
+                                <option value="yearUp">По году, по возрастанию</option>
+                                <option value="yearDown">По году, по убыванию</option>
+                                <option value="priceUp">По цене, по возрастанию</option>
+                                <option value="priceDown">По цене, по убыванию</option>
                             </select>
                         </div>
                         <div class="category mb-4">
                             <h5>Категорий</h5>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select category-select" aria-label="Default select example">
                                 <option selected>Категорий</option>
-                                <option value="1">Телефоны</option>
-                                <option value="2">Компьютеры</option>
-                                <option value="3">Другое</option>
+                                <option value="phone">Телефоны</option>
+                                <option value="computer">Компьютеры</option>
+                                <option value="other">Другое</option>
                             </select>
                         </div>
 
                         <div class="manufacturer mb-4">
                             <h5>Производитель</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="Apple" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault"> Apple </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="samsung" />
+                                <input class="form-check-input" type="checkbox" value="Samsung" id="samsung" />
                                 <label class="form-check-label" for="samsung"> Samsung </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Xiaomi" id="Xiaomi" />
+                                <label class="form-check-label" for="Xiaomi"> Xiaomi</label>
                             </div>
                         </div>
                         <div class="range-fileters mb-4">
@@ -107,7 +114,9 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-12 mt-sm-4 mt-xs-4">
-                        <div id="card-list" class="row row-cols-1 row-cols-md-3 g-4"></div>
+                        <div id="card-list" class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="my-sizer-element"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -187,6 +196,24 @@
                         <button type="button" class="btn mt-3 btn-primary gap-2 card-add-btn">
                             Добавить в корзину
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>

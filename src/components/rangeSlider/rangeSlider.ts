@@ -1,31 +1,4 @@
 import * as noUiSlider from 'nouislider';
-// const slider = document.getElementById('slider') as noUiSlider.target;
-
-// noUiSlider.create(slider, {
-//     start: [1995, 2010],
-//     connect: true,
-//     range: {
-//         min: 1990,
-//         max: 2022,
-//     },
-// });
-
-// const snapValues = [
-//     document.getElementById('slider-snap-value-lower'),
-//     document.getElementById('slider-snap-value-upper'),
-// ];
-
-// if (slider) {
-//     slider.noUiSlider?.on('update', function (values, handle) {
-//         if (snapValues[handle] != null) {
-//             const value = values[handle] as string;
-
-//             snapValues[handle]!.innerHTML = parseInt(value).toString();
-//         }
-//     });
-// }
-
-// console.log(noUiSlider);
 
 type range = {
     start: number;
@@ -33,8 +6,7 @@ type range = {
     min: number;
     max: number;
 };
-
-export class RangeSlider {
+class RangeSlider {
     slider: noUiSlider.target;
     snapValues: HTMLElement[];
 
@@ -62,3 +34,28 @@ export class RangeSlider {
         }
     }
 }
+
+const sliderDateElement = document.getElementById('slider-date') as HTMLElement;
+const sliderPriceElement = document.getElementById('slider-price') as HTMLElement;
+const snapDate = [
+    document.getElementById('slider-date-snap-value-lower'),
+    document.getElementById('slider-date-snap-value-upper'),
+];
+const snapPrice = [
+    document.getElementById('slider-price-snap-value-lower'),
+    document.getElementById('slider-price-snap-value-upper'),
+];
+
+export const sliderDate = new RangeSlider(sliderDateElement, snapDate as HTMLElement[], {
+    start: 1995,
+    end: 2015,
+    min: 1990,
+    max: 2022,
+});
+
+export const sliderPrice = new RangeSlider(sliderPriceElement, snapPrice as HTMLElement[], {
+    start: 1000,
+    end: 4000,
+    min: 10,
+    max: 5000,
+});
