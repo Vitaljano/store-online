@@ -47,7 +47,9 @@
                             <button type="button" id="reset-filters" class="btn btn-outline-secondary mb-4">
                                 Сброс фильтров
                             </button>
-                            <button type="button" class="btn btn-outline-secondary mb-4">Сброс настроек</button>
+                            <button type="button" class="reset-settings btn btn-outline-secondary mb-4">
+                                Сброс настроек
+                            </button>
                         </div>
                         <div class="sort mb-4">
                             <h5>Сортировка</h5>
@@ -64,7 +66,7 @@
                         <div class="category mb-4">
                             <h5>Категорий</h5>
                             <select class="form-select category-select" aria-label="Default select example">
-                                <option selected>Категорий</option>
+                                <option value="all" selected>Категорий</option>
                                 <option value="phone">Телефоны</option>
                                 <option value="computer">Компьютеры</option>
                                 <option value="other">Другое</option>
@@ -84,6 +86,14 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="Xiaomi" id="Xiaomi" />
                                 <label class="form-check-label" for="Xiaomi"> Xiaomi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="msi" id="msi" />
+                                <label class="form-check-label" for="msi"> Msi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="lenovo" id="lenovo" />
+                                <label class="form-check-label" for="lenovo">Lenovo</label>
                             </div>
                         </div>
                         <div class="range-fileters mb-4">
@@ -110,6 +120,8 @@
                                 <button class="color-btn color-btn--white">Белый</button>
                                 <button class="color-btn color-btn--red">Красный</button>
                                 <button class="color-btn color-btn--green">Зелёный</button>
+                                <button class="color-btn color-btn--black">Черный</button>
+                                <button class="color-btn color-btn--blue">Синий</button>
                             </div>
                         </div>
                     </div>

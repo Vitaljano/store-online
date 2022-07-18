@@ -10,7 +10,7 @@ class Storage {
 
         localStorage.setItem(key, JSON.stringify(value));
     }
-    cleat() {
+    clear() {
         localStorage.clear();
     }
 }

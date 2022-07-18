@@ -1,5 +1,7 @@
 import { sliderDate, sliderPrice } from '../rangeSlider/rangeSlider';
 import Shuffle from 'shufflejs';
+import { storage } from '../../helpers/storage';
+import { basket } from '../basket/basket';
 
 export class Filters {
     flow;
@@ -29,6 +31,7 @@ export class Filters {
         this.resetFilters();
         this.rangeFilterByYear();
         this.rangeFilterByPrice();
+        this.resetSettings();
     }
     search() {
         this.searchBar.addEventListener('keyup', (e) => {
@@ -67,13 +70,14 @@ export class Filters {
 
         buttons.forEach((btn) => {
             btn.addEventListener('click', (e) => {
+                const button = e.target as HTMLElement;
+                const buttonValue = button.textContent?.toLowerCase();
+
                 if (!flag) {
                     flag = true;
                 } else {
                     flag = false;
                 }
-                const button = e.target as HTMLElement;
-                const buttonValue = button.textContent?.toLowerCase();
 
                 if (buttonValue && flag) {
                     this.companyFlags.push(buttonValue);
@@ -81,7 +85,6 @@ export class Filters {
                     const index = this.companyFlags.indexOf(buttonValue as string);
                     this.companyFlags.splice(index, 1);
                 }
-                console.log(this.companyFlags);
 
                 this.shuffle?.filter(this.companyFlags);
             });
@@ -91,8 +94,11 @@ export class Filters {
         this.categorySelectElement.addEventListener('change', (e) => {
             const el = e.target as HTMLSelectElement;
             const elValue = (el[el.selectedIndex] as HTMLOptionElement).value;
-            console.log(elValue);
+
             this.shuffle.filter(elValue);
+            if (elValue === 'all') {
+                this.shuffle.filter();
+            }
         });
     }
     rangeFilterByYear() {
@@ -193,6 +199,13 @@ export class Filters {
 
             sliderDate.slider.noUiSlider?.set([1995, 2015]);
             sliderPrice.slider.noUiSlider?.set([1000, 4000]);
+        });
+    }
+    resetSettings() {
+        const restButton = document.querySelector('.reset-settings') as HTMLElement;
+        restButton.addEventListener('click', () => {
+            storage.clear();
+            this.resetFilters();
         });
     }
 }
