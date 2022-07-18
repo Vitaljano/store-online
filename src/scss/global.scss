@@ -1,0 +1,42 @@
+html {
+    box-sizing: content-box;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    border: 1px solid $gray-500;
+}
+.color-btn--active {
+    border: 2px solid salmon;
+}
+.color-btn--red {
+    background-color: red;
+}
+
+.color-btn--green {
+    background-color: green;
+}
+
+.color-btn--white {
+    background-color: white;
+}
+.color-btn--black {
+    background-color: black;
+}
+.color-btn--blue {
+    background-color: blue;
+}
+
+.card {
+    transition: ease-in 0.2s;
+}
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px lighten($primary, 40);
+}
+
+.in-basket button {
+    background-color: $danger !important;
+}
